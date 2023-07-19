@@ -1,0 +1,335 @@
+{
+  "project_info": {
+    "project_number": "713927226541",
+    "firebase_url": "https://rbpessacash-default-rtdb.firebaseio.com",
+    "project_id": "rbpessacash",
+    "storage_bucket": "rbpessacash.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:713927226541:android:4ccb72b351a2adf2a60224",
+        "android_client_info": {
+          "package_name": "com.chatrubiri_rbpessacash"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "713927226541-5f6jbakk39499fus86rdm31a4lsvt5kc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZnUWT4mZZpWTTcn2gIPSxO8NtamZFYEU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "713927226541-5f6jbakk39499fus86rdm31a4lsvt5kc.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "713927226541-pmgn6s34ijpdvkcaj2r98gaf3s9pqdvj.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.rbpessacashios.money"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:713927226541:android:6f207debcbdf095ba60224",
+        "android_client_info": {
+          "package_name": "com.fileshare.com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "713927226541-5f6jbakk39499fus86rdm31a4lsvt5kc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZnUWT4mZZpWTTcn2gIPSxO8NtamZFYEU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "713927226541-5f6jbakk39499fus86rdm31a4lsvt5kc.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "713927226541-pmgn6s34ijpdvkcaj2r98gaf3s9pqdvj.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.rbpessacashios.money"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:713927226541:android:8ab030a223360f64a60224",
+        "android_client_info": {
+          "package_name": "com.rbc.com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "713927226541-5f6jbakk39499fus86rdm31a4lsvt5kc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZnUWT4mZZpWTTcn2gIPSxO8NtamZFYEU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "713927226541-5f6jbakk39499fus86rdm31a4lsvt5kc.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "713927226541-pmgn6s34ijpdvkcaj2r98gaf3s9pqdvj.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.rbpessacashios.money"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:713927226541:android:e3ba04ff7e445e10a60224",
+        "android_client_info": {
+          "package_name": "com.rbmessage.com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "713927226541-5f6jbakk39499fus86rdm31a4lsvt5kc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZnUWT4mZZpWTTcn2gIPSxO8NtamZFYEU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "713927226541-5f6jbakk39499fus86rdm31a4lsvt5kc.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "713927226541-pmgn6s34ijpdvkcaj2r98gaf3s9pqdvj.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.rbpessacashios.money"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:713927226541:android:d835cff46d3d62d6a60224",
+        "android_client_info": {
+          "package_name": "com.rbpessacash.money"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "713927226541-5f6jbakk39499fus86rdm31a4lsvt5kc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZnUWT4mZZpWTTcn2gIPSxO8NtamZFYEU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "713927226541-5f6jbakk39499fus86rdm31a4lsvt5kc.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "713927226541-pmgn6s34ijpdvkcaj2r98gaf3s9pqdvj.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.rbpessacashios.money"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:713927226541:android:999fc8a20d8b4732a60224",
+        "android_client_info": {
+          "package_name": "com.rbpessacash.money_Agent"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "713927226541-5f6jbakk39499fus86rdm31a4lsvt5kc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZnUWT4mZZpWTTcn2gIPSxO8NtamZFYEU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "713927226541-5f6jbakk39499fus86rdm31a4lsvt5kc.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "713927226541-pmgn6s34ijpdvkcaj2r98gaf3s9pqdvj.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.rbpessacashios.money"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:713927226541:android:b95320fa5437a05ba60224",
+        "android_client_info": {
+          "package_name": "com.rbpessacash.movies"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "713927226541-5f6jbakk39499fus86rdm31a4lsvt5kc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZnUWT4mZZpWTTcn2gIPSxO8NtamZFYEU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "713927226541-5f6jbakk39499fus86rdm31a4lsvt5kc.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "713927226541-pmgn6s34ijpdvkcaj2r98gaf3s9pqdvj.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.rbpessacashios.money"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:713927226541:android:461504f1631c3eb3a60224",
+        "android_client_info": {
+          "package_name": "com.rbservice.yagachat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "713927226541-5f6jbakk39499fus86rdm31a4lsvt5kc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZnUWT4mZZpWTTcn2gIPSxO8NtamZFYEU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "713927226541-5f6jbakk39499fus86rdm31a4lsvt5kc.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "713927226541-pmgn6s34ijpdvkcaj2r98gaf3s9pqdvj.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.rbpessacashios.money"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:713927226541:android:38aa351b410376b8a60224",
+        "android_client_info": {
+          "package_name": "fileshare.rbpessacash.com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "713927226541-5f6jbakk39499fus86rdm31a4lsvt5kc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZnUWT4mZZpWTTcn2gIPSxO8NtamZFYEU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "713927226541-5f6jbakk39499fus86rdm31a4lsvt5kc.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "713927226541-pmgn6s34ijpdvkcaj2r98gaf3s9pqdvj.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.rbpessacashios.money"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
