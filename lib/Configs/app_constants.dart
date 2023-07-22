@@ -101,13 +101,13 @@ const RewardedAdUnit_IOS = 'ca-app-pub-3940256099942544/1712485313';
 //Also don't forget to Change the Admob App Id in "fiberchat/android/app/src/main/AndroidManifest.xml" & "fiberchat/ios/Runner/Info.plist"
 
 //*--Agora Configurations---
-const Agora_APP_ID = 'PASTE_AGORA_APP_ID';
+const Agora_APP_ID = '2a5a539d84e04d8593807a5c1e5914c6';
 // Grab it from: https://www.agora.io/en/
-const Agora_Primary_Certificate = 'PASTE_AGORA_PRIMARY_CERT_HERE';
+const Agora_Primary_Certificate = 'cd8af91b7c72498cb0aac8a22f49114f';
 // Enable the primary certificate for the project and copy & paste the value here.
 
 // *--Giphy Configurations---
-const GiphyAPIKey = 'PASTE_GIPHY_API_KEY';
+const GiphyAPIKey = '2qP75KJuk5Lk19ZXPFxujKeCacdx5ItZ';
 // Grab it from: https://developers.giphy.com/
 
 //*--App Configurations---
