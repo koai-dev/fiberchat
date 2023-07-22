@@ -73,7 +73,7 @@ const IsHIDELightDarkModeSwitchInApp = false;
 const IsShowLightDarkModeSwitchInLoginScreen = true;
 //If 'true', show change dark mode/light mode switch in login page. It is also visible in settings page.
 
-const IsShowAppLogoInHomepage = true;
+const IsShowAppLogoInHomepage = false;
 //If 'true', show applogo_light.png/applogo_dark.png in the homepage top appbar, and if 'false' shows only the AppLabel text in homepage appbar. If 'true' it is recommended to set the app logo with transparent background.
 
 const IsShowTextLabelsInPhotoVideoEditorPage = true;

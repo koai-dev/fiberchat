@@ -16,6 +16,8 @@ class Language {
   static List<Language> languageList() {
     return <Language>[
       Language(1, "🇺🇸", "English", "en", "English"),
+      Language(2, "vi", "Tiếng Việt", "vi", "Vietnamese"),
+
     ];
   }
 }
