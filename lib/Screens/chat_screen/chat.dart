@@ -103,6 +103,7 @@ class ChatScreen extends StatefulWidget {
   final MessageType? sharedFilestype;
   final bool isSharingIntentForwarded;
   final String? sharedText;
+
   ChatScreen({
     Key? key,
     required this.currentUserNo,
@@ -138,8 +139,10 @@ class _ChatScreenState extends State<ChatScreen> with WidgetsBindingObserver {
   bool typing = false;
   late File thumbnailFile;
   File? pickedFile;
+
   // bool isLoading = true;
   bool isgeneratingSomethingLoader = false;
+
   // int tempSendIndex = 0;
   String? imageUrl;
   SeenState? seenState;
@@ -172,6 +175,7 @@ class _ChatScreenState extends State<ChatScreen> with WidgetsBindingObserver {
   PlayerState playerState = PlayerState.stopped;
 
   get isPlaying => playerState == PlayerState.playing;
+
   get isPaused => playerState == PlayerState.paused;
 
   get durationText =>
@@ -181,6 +185,7 @@ class _ChatScreenState extends State<ChatScreen> with WidgetsBindingObserver {
       position != null ? position.toString().split('.').first : '';
 
   bool isMuted = false;
+
   void setStateIfMounted(f) {
     if (mounted) setState(f);
   }
@@ -189,6 +194,7 @@ class _ChatScreenState extends State<ChatScreen> with WidgetsBindingObserver {
   int _numInterstitialLoadAttempts = 0;
   RewardedAd? _rewardedAd;
   int _numRewardedLoadAttempts = 0;
+
   @override
   void initState() {
     super.initState();
@@ -230,6 +236,7 @@ class _ChatScreenState extends State<ChatScreen> with WidgetsBindingObserver {
   }
 
   bool hasPeerBlockedMe = false;
+
   listenToBlock() {
     chatStatusSubscriptionForPeer = FirebaseFirestore.instance
         .collection(DbPaths.collectionusers)
@@ -552,6 +559,7 @@ class _ChatScreenState extends State<ChatScreen> with WidgetsBindingObserver {
   }
 
   int? thumnailtimestamp;
+
   getFileData(File image, {int? timestamp, int? totalFiles}) {
     final observer = Provider.of<Observer>(this.context, listen: false);
 
@@ -607,6 +615,7 @@ class _ChatScreenState extends State<ChatScreen> with WidgetsBindingObserver {
   }
 
   String? videometadata;
+
   Future uploadFile(bool isthumbnail, {int? timestamp}) async {
     uploadTimestamp = timestamp ?? DateTime.now().millisecondsSinceEpoch;
     String fileName = getFileName(
@@ -1791,6 +1800,7 @@ class _ChatScreenState extends State<ChatScreen> with WidgetsBindingObserver {
             linkPreviewStyle: LinkPreviewStyle.large,
           );
   }
+
   // Widget selectablelinkify(String? text, double? fontsize) {
   //   return SelectableLinkify(
   //     style: TextStyle(fontSize: fontsize, color: Colors.black87),
@@ -3946,6 +3956,7 @@ class _ChatScreenState extends State<ChatScreen> with WidgetsBindingObserver {
   }
 
   FocusNode keyboardFocusNode = new FocusNode();
+
   Widget buildInputAndroid(BuildContext context, bool isemojiShowing,
       Function refreshThisInput, bool keyboardVisible) {
     final observer = Provider.of<Observer>(context, listen: true);
@@ -4389,7 +4400,8 @@ class _ChatScreenState extends State<ChatScreen> with WidgetsBindingObserver {
                             skinToneIndicatorColor: Colors.blue,
                             backspaceColor: fiberchatPRIMARYcolor,
                             // showRecentsTab: true,
-                            recentTabBehavior: emojipic.RecentTabBehavior.RECENT,
+                            recentTabBehavior:
+                                emojipic.RecentTabBehavior.RECENT,
                             recentsLimit: 28,
                             categoryIcons: CategoryIcons(),
                             buttonMode: ButtonMode.MATERIAL)),
@@ -4692,6 +4704,7 @@ class _ChatScreenState extends State<ChatScreen> with WidgetsBindingObserver {
   }
 
   int currentUploadingIndex = 0;
+
   uploadEach(
     int index,
   ) async {
@@ -4939,6 +4952,7 @@ class _ChatScreenState extends State<ChatScreen> with WidgetsBindingObserver {
   }
 
   bool isemojiShowing = false;
+
   refreshInput() {
     setStateIfMounted(() {
       if (isemojiShowing == false) {

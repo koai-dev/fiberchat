@@ -65,6 +65,7 @@ class DefaultFirebaseOptions {
     projectId: 'rbpessacash',
     databaseURL: 'https://rbpessacash-default-rtdb.firebaseio.com',
     storageBucket: 'rbpessacash.appspot.com',
+    androidClientId: '713927226541-sf8tdtaocp3uvlulajkoptpu8sd33kn5.apps.googleusercontent.com',
     iosClientId: '713927226541-f5sr2rsqq3aa073g7eum2jr2of43flt3.apps.googleusercontent.com',
     iosBundleId: 'com.tctech.fiberchatdemo',
   );

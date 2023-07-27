@@ -32,10 +32,10 @@
               "client_type": 3
             },
             {
-              "client_id": "713927226541-pmgn6s34ijpdvkcaj2r98gaf3s9pqdvj.apps.googleusercontent.com",
+              "client_id": "713927226541-f5sr2rsqq3aa073g7eum2jr2of43flt3.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.rbpessacashios.money"
+                "bundle_id": "com.tctech.fiberchatdemo"
               }
             }
           ]
@@ -68,10 +68,10 @@
               "client_type": 3
             },
             {
-              "client_id": "713927226541-pmgn6s34ijpdvkcaj2r98gaf3s9pqdvj.apps.googleusercontent.com",
+              "client_id": "713927226541-f5sr2rsqq3aa073g7eum2jr2of43flt3.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.rbpessacashios.money"
+                "bundle_id": "com.tctech.fiberchatdemo"
               }
             }
           ]
@@ -104,10 +104,10 @@
               "client_type": 3
             },
             {
-              "client_id": "713927226541-pmgn6s34ijpdvkcaj2r98gaf3s9pqdvj.apps.googleusercontent.com",
+              "client_id": "713927226541-f5sr2rsqq3aa073g7eum2jr2of43flt3.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.rbpessacashios.money"
+                "bundle_id": "com.tctech.fiberchatdemo"
               }
             }
           ]
@@ -140,10 +140,10 @@
               "client_type": 3
             },
             {
-              "client_id": "713927226541-pmgn6s34ijpdvkcaj2r98gaf3s9pqdvj.apps.googleusercontent.com",
+              "client_id": "713927226541-f5sr2rsqq3aa073g7eum2jr2of43flt3.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.rbpessacashios.money"
+                "bundle_id": "com.tctech.fiberchatdemo"
               }
             }
           ]
@@ -176,10 +176,10 @@
               "client_type": 3
             },
             {
-              "client_id": "713927226541-pmgn6s34ijpdvkcaj2r98gaf3s9pqdvj.apps.googleusercontent.com",
+              "client_id": "713927226541-f5sr2rsqq3aa073g7eum2jr2of43flt3.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.rbpessacashios.money"
+                "bundle_id": "com.tctech.fiberchatdemo"
               }
             }
           ]
@@ -212,10 +212,10 @@
               "client_type": 3
             },
             {
-              "client_id": "713927226541-pmgn6s34ijpdvkcaj2r98gaf3s9pqdvj.apps.googleusercontent.com",
+              "client_id": "713927226541-f5sr2rsqq3aa073g7eum2jr2of43flt3.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.rbpessacashios.money"
+                "bundle_id": "com.tctech.fiberchatdemo"
               }
             }
           ]
@@ -248,10 +248,10 @@
               "client_type": 3
             },
             {
-              "client_id": "713927226541-pmgn6s34ijpdvkcaj2r98gaf3s9pqdvj.apps.googleusercontent.com",
+              "client_id": "713927226541-f5sr2rsqq3aa073g7eum2jr2of43flt3.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.rbpessacashios.money"
+                "bundle_id": "com.tctech.fiberchatdemo"
               }
             }
           ]
@@ -266,6 +266,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "713927226541-sf8tdtaocp3uvlulajkoptpu8sd33kn5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rbservice.yagachat",
+            "certificate_hash": "48d52cae662e914e6d75b664565bd927189c1ef9"
+          }
+        },
         {
           "client_id": "713927226541-5f6jbakk39499fus86rdm31a4lsvt5kc.apps.googleusercontent.com",
           "client_type": 3
@@ -284,10 +292,10 @@
               "client_type": 3
             },
             {
-              "client_id": "713927226541-pmgn6s34ijpdvkcaj2r98gaf3s9pqdvj.apps.googleusercontent.com",
+              "client_id": "713927226541-f5sr2rsqq3aa073g7eum2jr2of43flt3.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.rbpessacashios.money"
+                "bundle_id": "com.tctech.fiberchatdemo"
               }
             }
           ]
@@ -320,10 +328,10 @@
               "client_type": 3
             },
             {
-              "client_id": "713927226541-pmgn6s34ijpdvkcaj2r98gaf3s9pqdvj.apps.googleusercontent.com",
+              "client_id": "713927226541-f5sr2rsqq3aa073g7eum2jr2of43flt3.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.rbpessacashios.money"
+                "bundle_id": "com.tctech.fiberchatdemo"
               }
             }
           ]

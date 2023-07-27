@@ -109,6 +109,6 @@ dependencies {
 
  configurations.all {
     resolutionStrategy {
-        force 'com.google.android.gms:play-services-location:17.1.0'
+        force 'com.google.android.gms:play-services-location:21.0.1'
      }
  }

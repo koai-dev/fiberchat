@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:camera/camera.dart';
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:fiberchat/Configs/app_constants.dart';
 import 'package:fiberchat/Services/localization/language_constants.dart';
 import 'package:fiberchat/Utils/utils.dart';
@@ -14,21 +15,25 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:holding_gesture/holding_gesture.dart';
+import 'package:overlay_support/overlay_support.dart';
+import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:video_player/video_player.dart';
-import 'package:path/path.dart' as p;
 
 class AllinOneCameraGalleryImageVideoPicker extends StatefulWidget {
   final Function(File file, bool isVideo, File? thumbnailFile) onTakeFile;
   final int? maxDurationInSeconds;
   final SharedPreferences prefs;
+
   const AllinOneCameraGalleryImageVideoPicker(
       {Key? key,
       required this.onTakeFile,
       this.maxDurationInSeconds = 120,
       required this.prefs})
       : super(key: key);
+
   @override
   _AllinOneCameraGalleryImageVideoPickerState createState() {
     return _AllinOneCameraGalleryImageVideoPickerState();
@@ -58,19 +63,25 @@ class _AllinOneCameraGalleryImageVideoPickerState
   VideoPlayerController? videoController;
   VoidCallback? videoPlayerListener;
   bool enableAudio = true;
+
   // ignore: unused_field
   double _minAvailableExposureOffset = 0.0;
+
   // ignore: unused_field
   double _maxAvailableExposureOffset = 0.0;
+
   // ignore: unused_field
   double _currentExposureOffset = 0.0;
   late AnimationController _flashModeControlRowAnimationController;
+
   // ignore: unused_field
   late Animation<double> _flashModeControlRowAnimation;
   late AnimationController _exposureModeControlRowAnimationController;
+
   // ignore: unused_field
   late Animation<double> _exposureModeControlRowAnimation;
   late AnimationController _focusModeControlRowAnimationController;
+
   // ignore: unused_field
   late Animation<double> _focusModeControlRowAnimation;
   double _minAvailableZoom = 1.0;
@@ -139,6 +150,7 @@ class _AllinOneCameraGalleryImageVideoPickerState
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   final CountDownController _timerController = CountDownController();
   DateTime? currentBackPressTime = DateTime.now();
+
   Future<bool> onWillPop() {
     if (controller != null &&
         controller!.value.isInitialized &&
@@ -367,71 +379,73 @@ class _AllinOneCameraGalleryImageVideoPickerState
                       // ),
                       IconButton(
                           onPressed: () async {
-                            File? selectedMedia =
-                                await pickMultiMedia(context).catchError((err) {
-                              Fiberchat.toast(
-                                  getTranslated(context, "invalidfile"));
-                              return null;
-                            });
-
-                            if (selectedMedia == null) {
-                            } else {
-                              String fileExtension =
-                                  p.extension(selectedMedia.path).toLowerCase();
-
-                              if (fileExtension == ".png" ||
-                                  fileExtension == ".jpg" ||
-                                  fileExtension == ".jpeg") {
-                                final tempDir = await getTemporaryDirectory();
-                                File file = await File(fileExtension == ".png"
-                                        ? '${tempDir.path}/${DateTime.now().millisecondsSinceEpoch}.png'
-                                        : '${tempDir.path}/${DateTime.now().millisecondsSinceEpoch}.jpg')
-                                    .create();
-                                file.writeAsBytesSync(
-                                    selectedMedia.readAsBytesSync());
-                                controller!.dispose();
-                                _flashModeControlRowAnimationController
-                                    .dispose();
-                                _exposureModeControlRowAnimationController
-                                    .dispose();
-                                await Navigator.pushReplacement(
-                                    context,
-                                    new MaterialPageRoute(
-                                        builder: (context) => PhotoEditor(
-                                              isPNG: false,
-                                              onImageEdit: (editedImage) {
-                                                widget.onTakeFile(
-                                                    editedImage, false, null);
-                                              },
-                                              imageFilePreSelected:
-                                                  File(file.path),
-                                            )));
-                              } else if (fileExtension == ".mp4" ||
-                                  fileExtension == ".mov") {
-                                final tempDir = await getTemporaryDirectory();
-                                File file = await File(
-                                        '${tempDir.path}/${DateTime.now().millisecondsSinceEpoch}.mp4')
-                                    .create();
-                                file.writeAsBytesSync(
-                                    selectedMedia.readAsBytesSync());
-                                await Navigator.pushReplacement(
-                                    context,
-                                    new MaterialPageRoute(
-                                        builder: (context) => new VideoEditor(
-                                              prefs: widget.prefs,
-                                              file: File(file.path),
-                                              onEditExported:
-                                                  (videoEdited, thumbnail) {
-                                                widget.onTakeFile(videoEdited,
-                                                    true, thumbnail);
-                                              },
-                                              thumbnailQuality: 20,
-                                              maxDuration: 600,
-                                              videoQuality: 60,
-                                            )));
-                              } else {
+                            if(await Permission.photos.request().isGranted && await Permission.videos.request().isGranted && await Permission.audio.request().isGranted){
+                              File? selectedMedia =
+                              await pickMultiMedia(context).catchError((err) {
                                 Fiberchat.toast(
-                                    "File type not supported. Please choose a valid .mp4, .mov, .jpg, .jpeg, .png file. \n\nSelected file was $fileExtension ");
+                                    getTranslated(context, "invalidfile"));
+                                return null;
+                              });
+
+                              if (selectedMedia == null) {
+                              } else {
+                                String fileExtension =
+                                p.extension(selectedMedia.path).toLowerCase();
+
+                                if (fileExtension == ".png" ||
+                                    fileExtension == ".jpg" ||
+                                    fileExtension == ".jpeg") {
+                                  final tempDir = await getTemporaryDirectory();
+                                  File file = await File(fileExtension == ".png"
+                                      ? '${tempDir.path}/${DateTime.now().millisecondsSinceEpoch}.png'
+                                      : '${tempDir.path}/${DateTime.now().millisecondsSinceEpoch}.jpg')
+                                      .create();
+                                  file.writeAsBytesSync(
+                                      selectedMedia.readAsBytesSync());
+                                  controller!.dispose();
+                                  _flashModeControlRowAnimationController
+                                      .dispose();
+                                  _exposureModeControlRowAnimationController
+                                      .dispose();
+                                  await Navigator.pushReplacement(
+                                      context,
+                                      new MaterialPageRoute(
+                                          builder: (context) => PhotoEditor(
+                                            isPNG: false,
+                                            onImageEdit: (editedImage) {
+                                              widget.onTakeFile(
+                                                  editedImage, false, null);
+                                            },
+                                            imageFilePreSelected:
+                                            File(file.path),
+                                          )));
+                                } else if (fileExtension == ".mp4" ||
+                                    fileExtension == ".mov") {
+                                  final tempDir = await getTemporaryDirectory();
+                                  File file = await File(
+                                      '${tempDir.path}/${DateTime.now().millisecondsSinceEpoch}.mp4')
+                                      .create();
+                                  file.writeAsBytesSync(
+                                      selectedMedia.readAsBytesSync());
+                                  await Navigator.pushReplacement(
+                                      context,
+                                      new MaterialPageRoute(
+                                          builder: (context) => new VideoEditor(
+                                            prefs: widget.prefs,
+                                            file: File(file.path),
+                                            onEditExported:
+                                                (videoEdited, thumbnail) {
+                                              widget.onTakeFile(videoEdited,
+                                                  true, thumbnail);
+                                            },
+                                            thumbnailQuality: 20,
+                                            maxDuration: 600,
+                                            videoQuality: 60,
+                                          )));
+                                } else {
+                                  Fiberchat.toast(
+                                      "File type not supported. Please choose a valid .mp4, .mov, .jpg, .jpeg, .png file. \n\nSelected file was $fileExtension ");
+                                }
                               }
                             }
                           },
@@ -1352,3 +1366,51 @@ class _AllinOneCameraGalleryImageVideoPickerState
 /// with `!` and `?` on the stable branch.
 
 T? _ambiguate<T>(T? value) => value;
+
+class MyPermissionHandler {
+  static Future<bool> checkPermission(
+    BuildContext context, {
+    String permissionName = 'gallery',
+  }) async {
+    if (Platform.isAndroid) {
+      final androidInfo = await DeviceInfoPlugin().androidInfo;
+      final sdkInt = androidInfo.version.sdkInt;
+      if (sdkInt < 33 && permissionName == 'gallery') {
+        return true;
+      }
+    }
+    FocusScope.of(context).requestFocus(FocusNode());
+    Map<Permission, PermissionStatus> statues;
+    switch (permissionName) {
+      case 'camera':
+        {
+          statues = await [Permission.camera].request();
+          PermissionStatus? statusCamera = statues[Permission.camera];
+          if (statusCamera == PermissionStatus.granted) {
+            return true;
+          } else if (statusCamera == PermissionStatus.permanentlyDenied) {
+            // showPermissionDialog(context, permissionName);
+            return false;
+          } else {
+            return false;
+          }
+        }
+      case 'gallery':
+        {
+          statues = await [Permission.photos].request();
+          PermissionStatus? statusPhotos = statues[Permission.photos];
+          if (statusPhotos == PermissionStatus.granted) {
+            return true;
+          } else if (statusPhotos == PermissionStatus.permanentlyDenied) {
+            // showPermissionDialog(context, permissionName);
+            return false;
+          } else if (statusPhotos == PermissionStatus.limited) {
+            // showLimitedPermissionDialog(context, permissionName);
+            return false;
+          } else {
+            return false;
+          }        }
+    }
+    return false;
+  }
+}

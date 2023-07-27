@@ -2,6 +2,7 @@
 
 import 'dart:core';
 import 'dart:io';
+
 import 'package:camera/camera.dart';
 import 'package:fiberchat/Configs/Dbkeys.dart';
 import 'package:fiberchat/Configs/app_constants.dart';
@@ -9,22 +10,24 @@ import 'package:fiberchat/Screens/homepage/homepage.dart';
 import 'package:fiberchat/Screens/homepage/initialize.dart';
 import 'package:fiberchat/Screens/splash_screen/splash_screen.dart';
 import 'package:fiberchat/Services/Providers/BroadcastProvider.dart';
-import 'package:fiberchat/Services/Providers/SmartContactProviderWithLocalStoreData.dart';
+import 'package:fiberchat/Services/Providers/DownloadInfoProvider.dart';
 import 'package:fiberchat/Services/Providers/GroupChatProvider.dart';
 import 'package:fiberchat/Services/Providers/LazyLoadingChatProvider.dart';
 import 'package:fiberchat/Services/Providers/Observer.dart';
+import 'package:fiberchat/Services/Providers/SmartContactProviderWithLocalStoreData.dart';
 import 'package:fiberchat/Services/Providers/StatusProvider.dart';
 import 'package:fiberchat/Services/Providers/TimerProvider.dart';
+import 'package:fiberchat/Services/Providers/call_history_provider.dart';
 import 'package:fiberchat/Services/Providers/currentchat_peer.dart';
 import 'package:fiberchat/Services/Providers/seen_provider.dart';
+import 'package:fiberchat/Services/Providers/user_provider.dart';
 import 'package:fiberchat/Services/localization/demo_localization.dart';
 import 'package:fiberchat/Services/localization/language_constants.dart';
-import 'package:fiberchat/Services/Providers/DownloadInfoProvider.dart';
-import 'package:fiberchat/Services/Providers/call_history_provider.dart';
-import 'package:fiberchat/Services/Providers/user_provider.dart';
 import 'package:fiberchat/Utils/theme_management.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -41,7 +44,15 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-
+  // FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
+  FlutterError.onError = (errorDetails) {
+    FirebaseCrashlytics.instance.recordFlutterFatalError(errorDetails);
+  };
+  // Pass all uncaught asynchronous errors that aren't handled by the Flutter framework to Crashlytics
+  PlatformDispatcher.instance.onError = (error, stack) {
+    FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
+    return true;
+  };
   if (message.data['title'] == 'Call Ended' ||
       message.data['title'] == 'Missed Call') {
     flutterLocalNotificationsPlugin..cancelAll();
@@ -101,6 +112,7 @@ void main() async {
 
 class FiberchatWrapper extends StatefulWidget {
   const FiberchatWrapper({Key? key}) : super(key: key);
+
   static void setLocale(BuildContext context, Locale newLocale) {
     _FiberchatWrapperState state =
         context.findAncestorStateOfType<_FiberchatWrapperState>()!;
@@ -120,6 +132,7 @@ class _FiberchatWrapperState extends State<FiberchatWrapper> {
   }
 
   Locale? _locale;
+
   setLocale(Locale locale) {
     setState(() {
       _locale = locale;
@@ -133,6 +146,7 @@ class _FiberchatWrapperState extends State<FiberchatWrapper> {
   }
 
   final Future<FirebaseApp> _initialization = Firebase.initializeApp();
+
   @override
   void didChangeDependencies() {
     getLocale().then((locale) {
@@ -240,7 +254,7 @@ class _FiberchatWrapperState extends State<FiberchatWrapper> {
                                     prefs: snapshot.data!,
                                     id: snapshot.data!.getString(Dbkeys.phone),
                                   ),
-                                      // home: FiberchatWrapper(),
+                                  // home: FiberchatWrapper(),
                                   // ignore: todo
                                   //TODO:---- All localizations settings----
                                   locale: _locale,

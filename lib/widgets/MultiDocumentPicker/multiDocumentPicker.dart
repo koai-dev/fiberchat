@@ -1,6 +1,8 @@
 //*************   © Copyrighted by Thinkcreative_Technologies. An Exclusive item of Envato market. Make sure you have purchased a Regular License OR Extended license for the Source Code from Envato to use this product. See the License Defination attached with source code. *********************
 
 import 'dart:io';
+
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:fiberchat/Configs/app_constants.dart';
 import 'package:fiberchat/Screens/status/components/VideoPicker/VideoPicker.dart';
 import 'package:fiberchat/Services/Providers/Observer.dart';
@@ -290,9 +292,14 @@ class _MultiDocumentPickerState extends State<MultiDocumentPicker> {
     }
   }
 
+  Future<bool> request() async {
+    return await Permission.manageExternalStorage.request().isGranted;
+  }
+
   @override
   Widget build(BuildContext context) {
     final observer = Provider.of<Observer>(this.context, listen: false);
+    request();
     return Fiberchat.getNTPWrappedWidget(WillPopScope(
       child: Scaffold(
         backgroundColor: Thm.isDarktheme(widget.prefs)
@@ -436,23 +443,51 @@ class _MultiDocumentPickerState extends State<MultiDocumentPicker> {
                   new Key('multi'),
                   Icons.add,
                   checkTotalNoOfFilesIfExceeded() == false
-                      ? () {
-                          Fiberchat.checkAndRequestPermission(
-                                  Permission.storage)
-                              .then((res) {
-                            if (res == true) {
-                              captureMultiPageDoc(false);
-                            } else if (res == false) {
-                              Fiberchat.showRationale(
-                                  getTranslated(this.context, 'pgi'));
-                              Navigator.pushReplacement(
-                                  this.context,
-                                  new MaterialPageRoute(
-                                      builder: (context) => OpenSettings(
-                                            prefs: widget.prefs,
-                                          )));
-                            } else {}
-                          });
+                      ? () async {
+                          if (Platform.isAndroid) {
+                            final androidInfo =
+                                await DeviceInfoPlugin().androidInfo;
+                            final sdkInt = androidInfo.version.sdkInt;
+                            if (sdkInt < 33) {
+                              Fiberchat.checkAndRequestPermission(
+                                      Permission.storage)
+                                  .then((res) {
+                                if (res == true) {
+                                  captureMultiPageDoc(false);
+                                } else if (res == false) {
+                                  Fiberchat.showRationale(
+                                      getTranslated(this.context, 'pgi'));
+                                  Navigator.pushReplacement(
+                                      this.context,
+                                      new MaterialPageRoute(
+                                          builder: (context) => OpenSettings(
+                                                prefs: widget.prefs,
+                                              )));
+                                } else {}
+                              });
+                            } else {
+                              if (await request()) {
+                                captureMultiPageDoc(false);
+                              }
+                            }
+                          } else {
+                            Fiberchat.checkAndRequestPermission(
+                                    Permission.storage)
+                                .then((res) {
+                              if (res == true) {
+                                captureMultiPageDoc(false);
+                              } else if (res == false) {
+                                Fiberchat.showRationale(
+                                    getTranslated(this.context, 'pgi'));
+                                Navigator.pushReplacement(
+                                    this.context,
+                                    new MaterialPageRoute(
+                                        builder: (context) => OpenSettings(
+                                              prefs: widget.prefs,
+                                            )));
+                              } else {}
+                            });
+                          }
                         }
                       : () {
                           Fiberchat.toast(

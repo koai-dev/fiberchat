@@ -1932,6 +1932,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.11.0"
+  storage_manager:
+    dependency: "direct main"
+    description:
+      name: storage_manager
+      sha256: "107d8bd35b3a1e07410e57b335790a519ff9c051521842b2755d1e04f4a05d21"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.3.0"
   stream_channel:
     dependency: transitive
     description:
